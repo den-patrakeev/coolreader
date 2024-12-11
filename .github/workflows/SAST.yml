@@ -10,11 +10,25 @@ jobs:
       - name: Checkout repository code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # for work tj-actions/changed-files
+          persist-credentials: false # for work tj-actions/changed-files
+      
+      - name: Get all source files that have changed
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: '**/*.{h,H,hpp,hh,h++,hxx,c,C,cpp,cc,c++,cxx,ino,pde,cu,proto}'
+
+      - name: List changed source file(s) for check
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
 
       - name: Run clang-format style check for C/C++/Protobuf programs
         uses: jidicula/clang-format-action@v4.14.0
         with:
           clang-format-version: '19'
-          check-path: 'src'
+          check-path: '.'
           fallback-style: 'llvm'
