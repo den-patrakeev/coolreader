@@ -10,7 +10,7 @@ jobs:
       - name: Install LLVM and Clang
         uses: KyleMayes/install-llvm-action@v2
         with:
-          version: "19.1.6"
+          version: "18.1.8"
 
       - name: Checkout repository code
         uses: actions/checkout@v4
