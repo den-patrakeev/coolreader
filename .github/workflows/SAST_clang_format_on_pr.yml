@@ -13,7 +13,7 @@ jobs:
           version: "18.1.8"
 
       - name: Install parallel for work with check many files
-        run: apt-get update && apt-get install parallel -y
+        run: sudo apt-get update && sudo apt-get install parallel -y
 
       - name: Checkout repository code
         uses: actions/checkout@v4
