@@ -12,6 +12,9 @@ jobs:
         with:
           version: "18.1.8"
 
+      - name: Install parallel for work with check many files
+        run: apt-get update && apt-get install parallel -y
+
       - name: Checkout repository code
         uses: actions/checkout@v4
         with:
@@ -30,6 +33,12 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+
+      - name: Check changed source file(s) by clang-format
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          parallel clang-format --style='file' --Werror  --dry-run --verbose ::: \
+            ${{ steps.changed-files.outputs.all_changed_files }}
 
       - name: Run clang-format style check for C/C++/Protobuf programs
         uses: jidicula/clang-format-action@v4.14.0
