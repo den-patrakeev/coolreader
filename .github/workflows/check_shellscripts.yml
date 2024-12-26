@@ -23,9 +23,7 @@ jobs:
 
   shfmt:
     name: Check shellscript formatting
-    needs: shellcheck
-    env:
-      SHFMT_VERSION: 3.0.1
+#    needs: shellcheck
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
