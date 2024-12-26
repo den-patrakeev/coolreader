@@ -105,4 +105,3 @@ BackgroundFitWindow::draw()
     }
     _wm->getScreen()->invalidateRect( fullRect );
 }
-
