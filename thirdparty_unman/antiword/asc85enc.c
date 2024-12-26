@@ -1,3 +1,4 @@
+
 /*
  * asc85enc.c
  * Copyright (C) 2000-2003 A.J. van Os; Released under GPL

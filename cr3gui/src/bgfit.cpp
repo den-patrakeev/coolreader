@@ -1,3 +1,4 @@
+
 /***************************************************************************
  *   CoolReader GUI                                                        *
  *   Copyright (C) 2009,2010 Vadim Lopatin <coolreader.org@gmail.com>      *
