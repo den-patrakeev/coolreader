@@ -1,4 +1,4 @@
-name: Static Application Security Testing
+name: Check Style in Code
 
 on: [pull_request]
 
