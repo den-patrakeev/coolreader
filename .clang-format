@@ -9,21 +9,7 @@ Cpp11BracedListStyle: true
 # Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
-# Force Precise control over the spacing in parentheses
-SpacesInParens: Custom
-SpacesInParensOptions:
-  InCStyleCasts: true
-  InEmptyParentheses: true
-  Other: true
----
-Language: JavaScript
-# Use 100 columns for JS.
-ColumnLimit: 100
 ---
 Language: Proto
 # Don't format .proto files.
 DisableFormat: true
----
-Language: CSharp
-# Use 100 columns for C#.
-ColumnLimit: 100
