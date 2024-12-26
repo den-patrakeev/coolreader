@@ -1,0 +1,22 @@
+name: Check shellscripts
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  shellcheck:
+    name: Check shellscripts by shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Check shellscripts by shellcheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          ignore_paths: >-
+            thirdparty
+            thirdparty_unman
