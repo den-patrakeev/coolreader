@@ -28,7 +28,7 @@ jobs:
         uses: tj-actions/changed-files@v45
         with:
           files: '**/*.{h,H,hpp,hh,h++,hxx,c,C,cpp,cc,c++,cxx,ino,pde,cu,proto}'
-          files_ignore: thirdparty_unman/*.{h,H,hpp,hh,h++,hxx,c,C,cpp,cc,c++,cxx,ino,pde,cu,proto}'
+          files_ignore: thirdparty_unman/**/*.{h,H,hpp,hh,h++,hxx,c,C,cpp,cc,c++,cxx,ino,pde,cu,proto}'
 
       - name: List added/changed C/C++/Protobuf source file(s) for check
         if: steps.changed-files.outputs.any_changed == 'true'
