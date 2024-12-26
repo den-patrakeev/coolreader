@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   clang-tidy:
-    name: Check sources by clang-format for added/changed files in PR
+    name: Check sources by clang-tidy on PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
