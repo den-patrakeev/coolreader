@@ -11,7 +11,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Prepare third party libs
-        run: bash thirdparty-deploy.sh
+        run: |
+          chmod +x "${GITHUB_WORKSPACE}/thirdparty-deploy.sh"
+          "${GITHUB_WORKSPACE}/thirdparty-deploy.sh"
 
       - name: Check project by clang-tidy
         id: review
