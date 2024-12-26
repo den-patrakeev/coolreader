@@ -1,4 +1,4 @@
-name: Check shellscripts
+name: check-shellscripts
 
 on:
   push:

@@ -21,6 +21,8 @@ Sourceforge repository will be used as a mirror
 [![Join the chat at https://gitter.im/coolreader/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/coolreader/Lobby)
 
 
+[![shell-lint](https://github.com/buggins/coolreader/workflows/check-shellscripts/badge.svg?branch=master)](https://github.com/buggins/coolreader/actions?query=workflow%3Acheck-shellscripts+branch%3Amaster)
+
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
