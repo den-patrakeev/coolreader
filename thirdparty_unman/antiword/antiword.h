@@ -749,4 +749,3 @@ extern void	vAddTableRowXML(diagram_type *, char **, int,
 			const short *, UCHAR);
 
 #endif /* __antiword_h */
-

@@ -1,4 +1,3 @@
-
 /***************************************************************************
  *   CoolReader, wxWidgets GUI                                             *
  *   Copyright (C) 2007-2010,2012 Vadim Lopatin <coolreader.org@gmail.com> *
