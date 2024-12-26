@@ -1,0 +1,32 @@
+name: Static Application Security Testing
+
+on: [pull_request]
+
+jobs:
+  clang-tidy:
+    name: Check sources by clang-tidy on PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Prepare third party libs
+        run: |
+          chmod +x "${GITHUB_WORKSPACE}/thirdparty-deploy.sh"
+          "${GITHUB_WORKSPACE}/thirdparty-deploy.sh"
+
+      - name: Check project by clang-tidy
+        id: review
+        uses: ZedThree/clang-tidy-review@v0.20.1
+        with:
+          apt_packages: 'build-essential,git,cmake,curl,pkg-config,zlib1g-dev,libpng-dev,libjpeg-dev,libfreetype6-dev,libfontconfig1-dev,libharfbuzz-dev,libfribidi-dev,libunibreak-dev,libzstd-dev,libutf8proc-dev,qtbase5-dev,qttools5-dev'
+          build_dir: 'qtbuild'
+          cmake_command: 'cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=on -D GUI=QT5 -D CMAKE_BUILD_TYPE=Release -D MAX_IMAGE_SCALE_MUL=2 -D DOC_DATA_COMPRESSION_LEVEL=3 -D DOC_BUFFER_SIZE=0x1400000 -D CMAKE_INSTALL_PREFIX=/usr ..'
+
+      - name: Uploads an artefact containing clang_fixes.json
+        id: upload-review
+        uses: ZedThree/clang-tidy-review/upload@v0.20.1
+
+      - name: Check for fail
+        if: steps.review.outputs.total_comments > 0
+        run: exit 1
