@@ -28,3 +28,6 @@ ignore = true
 
 [thirdparty_unman/**]
 ignore = true
+
+[android/gradlew]
+ignore = true
